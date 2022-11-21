@@ -22,6 +22,7 @@ For the final projects, and if you do the **extra** at the end of the exercise o
 
 The **database folder is already setup for you**, for the Team Projects you will have to set it up yourselves!
 
+- insert your pc username in config.json to pass the correct user for the DB creation
 - Use **sequelize-cli to generate the migrations** to create the Models shown in the schema.
 Do you remember how to do it? --> check the slides!
 
@@ -58,6 +59,8 @@ Run in this sequence:
 `sequelize-cli db:seed:all`
 
 If you mess up your DB you can always erase it with `sequelize-cli db:drop` and then recreate it.
+
+Now *use PgAdmin 4 to visualize your DB*. Don't remember how? --> Check the slides
 
 ## Step 5 - Create the controllers
 
