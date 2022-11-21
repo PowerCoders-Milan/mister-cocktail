@@ -2,7 +2,7 @@
 
 In the next 3 days we will create a small application to create a cocktail library with the names, images and recipes of the cocktails.
 
-Follow every step of the guide to create the correct models and connect everything together.
+**Follow every step of the guide to create the correct models and connect everything together.**
 
 On Wednesday you will present your application (if you are done) to the class.
 
