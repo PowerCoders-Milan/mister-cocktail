@@ -14,7 +14,7 @@ We want to make sure that we always have a working version of the App so that if
 
 ## Step 1 - Design the schema
 
-The basic schema of the app has been designed for you today. You can find it in the /database folder.
+The basic schema of the app has been designed for you today. You can **find it in the /database folder**.
 
 For the final projects, and if you do the **extra** at the end of the exercise of today, you will have to design the schema by yourself
 
@@ -23,6 +23,10 @@ For the final projects, and if you do the **extra** at the end of the exercise o
 The **database folder is already setup for you**, for the Team Projects you will have to set it up yourselves!
 
 - insert your pc username in config.json to pass the correct user for the DB creation
+- remove the example.js files from models, migrations and seeders
+
+Now you're ready!
+
 - Use **sequelize-cli to generate the migrations** to create the Models shown in the schema.
 Do you remember how to do it? --> check the slides!
 
