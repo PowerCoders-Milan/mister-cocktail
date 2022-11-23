@@ -109,9 +109,11 @@ Do you remember how to do it? --> check the slides!
 
 ### Step 6.3 - How to create an item: new.js
 
-In the new.js page we can use a simple html form rendered in the component to get the info that we need and send it to a specific api route for the object creation.
+In the new.js page we can use a simple html form to sed data to the API.
+the **action** attribute of form allows us to send a request with the data of the form to a specific api route for the object creation.
 
-- create an html form to get all the info, create an api route to receive these info and create a new cocktail
+- create an html form to get all the info in pages/cocktails/new.js
+- create an api route in api/cocktails/new.js to receive data and create a new cocktail
 
 ```
 // how to create a form that points to an api route
@@ -124,6 +126,7 @@ In the new.js page we can use a simple html form rendered in the component to ge
   <input type="submit" value="Submit"/>
 </form>
 ```
+```
 // api/cocktails/new.js
 export default async function handler(req, res) {
   const {name, recipe} = req.query;
@@ -133,6 +136,7 @@ export default async function handler(req, res) {
   res.status(200).redirect(`/cocktails/${cocktail.id}`);
   // the redirect method will send you to the correct page
 }
+```
 
 The **redirect** can send you to a new page once you are done with the creation of the Cocktail.
 
