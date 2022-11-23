@@ -1,7 +1,6 @@
 import styles from '../styles/Home.module.css'
 import cocktailController from '../controllers/cocktail'
 import userController from '../controllers/user'
-import Navbar from '../components/navbar'
 import Card from '../components/card'
 
 export default function Home(props) {
@@ -10,7 +9,6 @@ export default function Home(props) {
 
   return (
     <>
-      <Navbar></Navbar>
       <div className={styles.container}>
         <h1>List of cocktails</h1>
         {cocktails.map(cocktail => (<Card cocktail={cocktail} key={cocktail.id}></Card>))}

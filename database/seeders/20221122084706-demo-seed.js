@@ -6,6 +6,7 @@ module.exports = {
     await queryInterface.bulkInsert('Cocktails', [{
       title: 'martini',
       description: 'martini on the rocks',
+      imageUrl: 'https://res.cloudinary.com/dzvox0kev/image/upload/v1669216278/unsigned-uploads/rkkusvcxd4d4xgxzwydr.png',
       createdAt: new Date(),
       updatedAt: new Date()
     }])

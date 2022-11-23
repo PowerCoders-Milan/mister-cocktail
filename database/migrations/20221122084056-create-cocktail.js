@@ -23,6 +23,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      imageUrl: {
+        type: Sequelize.TEXT
+      },
       UserId: {
         type: Sequelize.INTEGER
       }

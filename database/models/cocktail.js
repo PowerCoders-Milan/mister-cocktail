@@ -10,6 +10,7 @@ const initCocktail = (sequelize, DataTypes) => {
   Cocktail.init({
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
+    imageUrl: DataTypes.TEXT,
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

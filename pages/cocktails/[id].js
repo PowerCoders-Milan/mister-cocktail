@@ -1,17 +1,16 @@
 import styles from '../../styles/Home.module.css'
 import cocktailController from '../../controllers/cocktail'
-import Navbar from '../../components/navbar'
-
+import Image from 'next/image'
 export default function Home(props) {
   const cocktail = props.cocktail
 
 
   return (
     <>
-      <Navbar></Navbar>
       <div className={styles.container}>
         <h1>{cocktail.title}</h1>
         <p>{cocktail.description}</p>
+        <Image src={cocktail.imageUrl} alt="cocktail-image" width="60" height="100"></Image>
       </div>
     </>
   )
