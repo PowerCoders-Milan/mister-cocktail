@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import User from './models/user';
-import config from './config/config.json';
+import config from './config/config.mjs';
 import Cocktail from './models/cocktail';
 
 const db = {};

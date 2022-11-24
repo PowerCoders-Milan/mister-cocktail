@@ -15,8 +15,8 @@ module.exports = {
     {
       firstName: 'Luca',
       lastName: 'black',
-      email: 'marco@gmail.com',
-      phoneNumber: 12932191,
+      email: 'luca@gmail.com',
+      phoneNumber: 12312312,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

@@ -1,229 +1,148 @@
-# Mr. Cocktail
+# EX 1 - Broken mister cocktail
 
-In the next 3 days we will create a small application to create a cocktail library with the names, images and recipes of the cocktails.
+Today you are going to train the skill of **fixing broken applications**.
 
-**Follow every step of the guide to create the correct models and connect everything together.**
+Many time when you are **interviewed** you have to examine an application and add a feature or fix some errors (you have to find the errors first).
 
-On Wednesday you will present your application (if you are done) to the class.
+The exercise today will be to make **Mister Cocktail work properly**!
 
-Before we start run `yarn` and `yarn add sequelize sequelize-cli pg` to install all the libraries that you need in this project.
+## Step 1 - Yarn
 
-- remember to commit your code any time you create something new
+Whenever you download the repository of an application you need to **check** that all the **libraries have been installed** on the project.
 
-We want to make sure that we always have a working version of the App so that if we break some functionality and we want to go back to a previuous version we are always able to. (it may happen even today that we want to go back)
+If these aren't added you will not be able to make the app work.
 
-## Step 1 - Design the schema
+So as a first step run `yarn` in the terminal.
 
-The basic schema of the app has been designed for you today. You can **find it in the /database folder**.
+`yarn` will **install al packages** and create the node modules folder and the yarn.lock file.
 
-For the final projects, and if you do the **extra** at the end of the exercise of today, you will have to design the schema by yourself
+## Step 2 - DB
 
-## Step 2 - Create the models
+Now in order for our application to work we need to check what kind of DB is using.
 
-The **database folder is already setup for you**, for the Team Projects you will have to set it up yourselves!
+We will need to **create a local version** of the DB on our PC. Luckily the app uses PostgreSQL wich we are already set up for and Seqeulize, which we know ow to use.
 
-- insert your pc username in config.json to pass the correct user for the DB creation
-- remove the example.js files from models, migrations and seeders
+**Check the config file** (the last developer might have left his username).
 
-Now you're ready!
+**Check** that the **migrations**, the **models** and the **seeds** exist.
 
-- Use **sequelize-cli to generate the migrations** to create the Models shown in the schema.
-Do you remember how to do it? --> check the slides!
+Run the commands to:
+- create the db
+- run the migrations
+- run the seeds
 
-The properties shown in the schema are the bare minimum, you can add more details to the models.
+**Open PgAdmin** to check that the **DB has been created** and the data + Tables are there.
 
-**Remember** to modify the automatically created Models and to connect them in index.js like shown in the slides.
+## Launch the localhost
 
-## Step 3.1 - Create the seeds for Cocktails
+If the DB is set up we are ready to see if the application is running and where the problems are.
 
-Lets **create two cocktails** in our DB so that *we have something to show* when we render the index.js page (it's going to be where we show all the cocktails).
+Run `yarn dev` to launch the localhost and navigate to the main page.
 
-- Use sequelize-cli to create the seeds for 2 cocktails.
-Do you remember how to do it? --> check the slides!
+## Fixing errors
 
-## Step 3.2 - Create the seeds for Admin User
+Some pages and functionalities are not going to work..
 
-We want our Admin User to alway be present. If we don't have an admin user, how will we manage the App once it is public?
+The way to solve this issue is to try pages from the localhost, see what doesn't work (errors or missing functionality) and go to the code to fix it.
 
-Have you seen the models schema? the admin user can have the name that you prefer but he must have **admin:true**
+Here **console.log is you best friend** to see the variables, the props, the body of the request and much more. Once you log it and see what's inside you can easily fix it.
 
-- Use sequelize-cli to create the seeds for 1 admin user.
-Do you remember how to do it? --> check the slides!
+**Visit every page** and **try all the functionalities** until the app is completely fixed.
 
-## Step 4 - Create DB and Tables
+There are some **comments** that the developer before you left, these comments describe the code and explain what he wanted to do before he stopped working.
 
-Now that you created the migrations and the seeds we can crete the DB and synchronize it with all the changes that we have done so far.
+Keep this as a list:
 
-Run in this sequence:
+- in the index.js page I need to be able to see all the cocktails and click on one to go to the cocktail detailed page
 
-`sequelize-cli db:create`
+- the cocktail detailed page needs to show the info of the cocktail
 
-`sequelize-cli db:migrate`
+- the Navbar needs to send me to the list of all cocktail and to the creation of a new Cocktail.
 
-`sequelize-cli db:seed:all`
+-  the new.js page needs to take all the form data and send it to the api to create a new cocktail
 
-If you mess up your DB you can always erase it with `sequelize-cli db:drop` and then recreate it.
+- the api needs to create a cocktail and then redirect to the new cocktail details route
 
-Now *use PgAdmin 4 to visualize your DB*. Don't remember how? --> Check the slides
+# EX 2 - Next Auth
 
-## Step 5 - Create the controllers
+Now that the App is working, **follow today's slides** to add next auth to the application and track the users.
 
-Now that you created the models and the seeds let's create the controllers to better handle our data.
+We recommend adding Credentials.
 
-- Create the controllers for User and Cocktail
-Do you remember how to do it? --> check the slides!
+*Extra* You can also choose to try and add one external Provider (more difficult, check the documentation).
 
-Every time that you need to do something new with the DB, you can create a method in the controllers and use it :)
+Make sure to:
+- install the library
+- create the auth api route
+- set the session in _app.js
+- get the session in all the pages
+- add the sign in and sign out button in the navbar
 
-Hint: Do not create all the methods right away, create them only when you need them.
+*Extra*
 
-## Step 6 - Create the pages
+In the new.js api page find the current user and associate the new cocktail to it.
 
-For our most basic version of the App we need to be able to **display all the cocktails**, open up **one specific cocktail** in one page and **create a new cocktail** to add to our list.
+# Extra: EX 3 - add Coudinary as a Component
 
-- /pages/index.js will list all the cocktails
-- /pages/cocktails/[id].js will show the info of only one cocktail
-- /pages/cocktails/new.js will allow you to create once cocktail
+We are going to create a **cloudinary image uploader component**. Then we can add it to our form to easily upload images.
 
-Make sure to **use the Link element to connect the 3 pages** otherwise how will we navigate?
+Add a **migration** that adds imageUrl to the cocktail Table.
 
-### Step 6.1 - List all: index.js
+Run the migration.
 
-Here you will get all the cocktails from the DB and display them in a list.
+Create **ImageUpload.jsx** in the components folder.
 
-You can use a placeholder image for all the cocktails.
+Add this code to the page to create the component.
 
-- start by writing all the html that you need to list all the cocktail that you get from the DB
-
-Aftwerwards you can refactor it by creating the **Card component** to render 1 cocktail and then the **Cocktails** component to render many **Cards**.
-
-### Step 6.2 - View one cocktail: [id].js
-
-Once we select one cocktail from the index we want to see alll its details in a new page just for that cocktail.
-
-We will use the Link element to redirect us to the cocktail route and we will have to pass the id of the cocktail, for example the first one will have the route /cocktails/1
-
-- get the id of the cocktail and find it from the DB, use what you find to render the detailed page of the cocktail.
-
-Do you remember how to do it? --> check the slides!
-
-### Step 6.3 - How to create an item: new.js
-
-In the new.js page we can use a simple html form to sed data to the API.
-the **action** attribute of form allows us to send a request with the data of the form to a specific api route for the object creation.
-
-- create an html form to get all the info in pages/cocktails/new.js
-- create an api route in api/cocktails/new.js to receive data and create a new cocktail
+Read the code and try to understand how it works.. Concole log what you don't understand to try to get it.
 
 ```
-// how to create a form that points to an api route
-// pages/cocktails/new.js
-<form action="/api/cocktails/new">
-  <label htmlFor="name">Cocktail name:</label><br/>
-  <input type="text" id="name" name="name" /><br/>
-  <label htmlFor="recipe">Recipe:</label><br/>
-  <input type="text" id="recipe" name="recipe"/><br /><br />
-  <input type="submit" value="Submit"/>
-</form>
-```
-```
-// api/cocktails/new.js
-export default async function handler(req, res) {
-  const {name, recipe} = req.query;
-  const cocktail = await cocktailController.create({
-    name, recipe
-  })
-  res.status(200).redirect(`/cocktails/${cocktail.id}`);
-  // the redirect method will send you to the correct page
+import { useState } from "react"
+
+export default function ImageUpload () {
+  const [url, setUrl] = useState('')
+  const handleChange = async (event) => {
+    // logs the file to check that it's the right event target
+    console.log(event.target.files[0])
+    const imageInput = event.target.files[0]
+    const imageFormData = new FormData()
+    imageFormData.append('file', imageInput)
+    imageFormData.append('upload_preset', 'unsigned_upload')
+    console.log(Object.fromEntries(imageFormData))
+    const responseCloudinary = await fetch('https://api.cloudinary.com/v1_1/dzvox0kev/image/upload', {
+      method: "POST",
+      body: imageFormData
+    })
+    const responseCloudinaryData = await responseCloudinary.json()
+    // Gets the image url from the cloudinary response
+    const secureUrl = responseCloudinaryData.secure_url
+    console.log(secureUrl)
+    // Set the image url as the value of the hidden form field
+    // This value will be passed with the others at the form submit
+    setUrl(secureUrl)
+  }
+  return (
+    <>
+      <label htmlFor="image">Upload an Image</label>
+      <input type="file" accept=".jpg, .png, .jpeg" name="image" id="image" onChange={handleChange}/>
+      <input type="text" hidden={true} name="imageUrl" id="imageUrl" defaultValue={url}/>
+      <br />
+      <br />
+    </>
+  )
 }
 ```
 
-The **redirect** can send you to a new page once you are done with the creation of the Cocktail.
+**Add this component to the form** in pages/cocktails/new.js
 
-## Step 7 - Style
+Make sure to add this new value in the cocktail creation in api/cocktails/new.js
 
-Everyone should have a unique style for his Mr. Cocktail App.
+Test it and see if it is working..
 
-- Check the lecture on Next Frontend to see how to create you own style for the App and make it unique.
+# Extra: EX 4 - Push to Heroku
 
-When we will present the App we will **vote for the best styles!**
+Everything is setup to be pushed to heroku.
 
-- Add a nice logo to your App
-- Add a Navbar to navigate your App
+Create an account, follow the instructions of the heroku slides to push you application to heroku. Check if everything is still working.
 
-# Extras
-
-Congrats on finishing the basic exercise, now you can add some more functionalities!
-
-Pick the ones you like the most ;)
-
-- Before adding extra features make sure that you commit your code.
-
-We want to make sure that we always have a working version of the App so that if we break some functionality and we want to go back to a previuous version we are always able to.
-
-## Extra 1 - No more placeholder
-
-Arent you bored of placeholders as cocktails pictures?
-
-Add random image to cocktails with this
-
-- in getServerSideProps send a request to get a random image using a search term (in the example it is martini)
-https://pixabay.com/api/?key=8552570-540dab6f18162a9471dc11307&q=martini&image_type=photo&pretty=true
-
-The API Key is mine and if you all use it it will stop working (it has a daily limit)
-
-To get your own API key and to understand how it all works check out the documentation and register as a Developer https://pixabay.com/api/docs/ (for free!).
-
-Once you receive a response you should get the url of an image and use that.
-
-Look carefully, what response do we get? How can we make it random?
-
-## Extra 2 - Searchbar
-
-Let's say our App increases to 1 million cocktails.. would we be able to find the one we want to see in the index.js page? Let's create a simple searchBar.
-
-- Add a searchbar component that will filter the Cocktails based on their names and return only the ones that match to be displayed.
-
-Remember to use the useEffect and useState.
-
-## Extra 3 - Reviews
-
-It would be nice if we could review all the cocktails and then sort them by the best rated ones, no?
-
-Let's add the Review Table to our DB:
-
-- Recreate the DB schema on https://draw.io/ and add the Reviews Table with all its properties and associations
-- create a migration for the new model Review which takes a score from 1 to 5 and a comment
-
-What is the relationship between the Review and the Cocktails? How would you associate them?
-
-- In the page of a single cocktail add a form to rate and comment the cocktail
-- Make sure to also show all the existing reviews of the cocktail and calculate the average score
-
-Remember that these calculations belong to the controllers, not the pages.
-
-**Even more Extra** in index.js calculate the average score of all the cocktails and sort them by best score.
-
-## Extra 4 - Ingredients
-
-Many cocktails share the same ingredients, meaning that in our App the ingredients do not have to only be in the description. They can be a Model of their own.
-
-Why would we do this? First of all in the future we could filter for ingredients and for example get all the drinks that contain Vodka. Moreover we can add many properties to the Ingredients like the price $$ and then be able to calculate the cost of a drink!
-
-- Recreate the DB schema on https://draw.io/ and add the Ingredients Table with all its properties and associations
-- Create the Ingredients Table with the sequelize-cli migrations
-- Ingredients have a name and a price
-
-How would you associate them witht the Cocktails?
-
-When is it that you add the ingredients to the cocktail?
-
-Do you create the Ingredients before, after or during the creation of a New Cocktail?
-
-## Extra 5 - Even more features
-
-Are you still not satisfied?
-You can add any feature you want..
-
-- Make sure to keep the DB schema updated
-- Save many versions of the App in case you
+You might have to add NEXTAUTH_URL as an environment variable of Heroku..
