@@ -2,7 +2,7 @@ import cocktailController from "../../../controllers/cocktail";
 
 
 export default async function handler(req, res) {
-  const { title, description } = req.query;
+  // take the title and description from the request body
   const cocktail = await cocktailController.create({
     title, description
   })

@@ -3,6 +3,7 @@ import cocktailController from '../../controllers/cocktail'
 import Navbar from '../../components/navbar'
 
 export default function Home(props) {
+  // you can get the cocktail from the props
   const cocktail = props.cocktail
 
 
@@ -18,9 +19,12 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(req, res) {
-  const { id } = req.query
+  // TODO get the id from the request query
+
+  // find the cocktail with the id
   const cocktail = await cocktailController.find(id)
   return {
-    props: { cocktail },
+    // return the cocktail to the component
+    props: {  },
   }
 }
