@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import config from './config/config.json';
+import config from './config/config.mjs';
 
 let sequelize;
 if (process.env.NODE_ENV === 'production') {
