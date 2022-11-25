@@ -2,7 +2,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export default config = {
+ const config = {
   "development": {
     "username": "marcochellichecchi",
     "password": null,
@@ -25,3 +25,5 @@ export default config = {
     },
   },
 }
+
+export default config
