@@ -1,10 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export default config = {
+const config = {
   "development": {
     // TODO change the username
     "username": "marco",
+    // TODO change the password
     "password": null,
     "database": "mister-cocktail",
     "host": "127.0.0.1",
@@ -27,3 +28,4 @@ export default config = {
     },
   },
 }
+export default config
