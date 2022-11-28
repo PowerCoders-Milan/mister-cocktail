@@ -10,7 +10,11 @@ const initUser = (sequelize, DataTypes) => {
   User.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     phoneNumber: DataTypes.INTEGER
   }, {
     sequelize,

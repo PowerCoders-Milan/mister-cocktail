@@ -45,6 +45,10 @@
   font-size: 4rem;
 }
 
+.error {
+    color: #ee1a1a;
+}
+
 .title,
 .description {
   text-align: center;

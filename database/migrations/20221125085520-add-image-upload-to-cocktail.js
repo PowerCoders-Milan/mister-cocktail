@@ -6,7 +6,6 @@ module.exports = {
     await queryInterface.addColumn('Cocktails', 'imageUrl', {
       type: Sequelize.DataTypes.STRING
     });
-
   },
 
   async down (queryInterface, Sequelize) {

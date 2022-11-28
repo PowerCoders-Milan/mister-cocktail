@@ -8,8 +8,18 @@ const initCocktail = (sequelize, DataTypes) => {
     }
   }
   Cocktail.init({
-    title: DataTypes.STRING,
-    description: DataTypes.TEXT,
+    title: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    description: {
+      type: DataTypes.TEXT,
+      validate: {
+        notEmpty: true,
+      },
+    },
     imageUrl: DataTypes.STRING,
     UserId: DataTypes.INTEGER
   }, {
